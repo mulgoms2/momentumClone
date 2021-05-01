@@ -21,7 +21,7 @@
     <script defer src="./src/greeting.js"></script>
     <script defer src="./src/todo.js"></script>
     <script defer src="./src/background.js"></script>
-    <script defer src="./src/weather.js"></script>
+    <script defer type="module" src="./src/weather.js"></script>
   </head>
   <body>
     <main class="mainContainer">
@@ -34,7 +34,7 @@
         <form class="js-greeting greeting">
           <span></span>
           <br />
-          <input class="greetInput" type="text" spellcheck="false" />
+          <input class="greetInput" type="text" spellcheck="false" required />
           <button class="greetInputBtn">Continue</button>
         </form>
       </div>
