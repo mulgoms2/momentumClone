@@ -56,8 +56,8 @@ function loadCoords() {
   }
 }
 
-function init() {
+function weatherInit() {
   loadCoords();
 }
 
-init();
+weatherInit();
