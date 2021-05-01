@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>momontum</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/25ebd78ded.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./src/clock.js"></script>
+    <script defer src="./src/greeting.js"></script>
+    <script defer src="./src/todo.js"></script>
+    <script defer src="./src/background.js"></script>
+    <script defer src="./src/weather.js"></script>
+  </head>
+  <body>
+    <main class="mainContainer">
+      <div class="js-clockContainer clockContainer">
+        <h1 class="js-calendar calendar"></h1>
+        <h1 class="js-clock clock"></h1>
+      </div>
+      <div id="greeting">
+        <h2 class="js-hello hello"></h2>
+        <form class="js-greeting greeting">
+          <span></span>
+          <br />
+          <input class="greetInput" type="text" spellcheck="false" />
+          <button class="greetInputBtn">Continue</button>
+        </form>
+      </div>
+      <div class="js-todoList todoList">
+        <form id="js-form">
+          <input
+            class="todoBox"
+            type="text"
+            placeholder="Add your To-Do"
+            spellcheck="false"
+            onfocus="this.placeholder = ''"
+            required
+          />
+        </form>
+        <div class="pendAndFin">
+          <div class="pending">
+            <h3>Today</h3>
+            <ul id="js-pending"></ul>
+          </div>
+          <div class="finished">
+            <h3>Finished</h3>
+            <ul id="js-finished"></ul>
+          </div>
+        </div>
+      </div>
+      <span class="js-weather weather"></span>
+    </main>
+  </body>
+</html>
