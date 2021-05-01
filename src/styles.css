@@ -33,8 +33,6 @@ body {
 
 .greeting {
   /* when ask name */
-  display: flex;
-  flex-direction: column;
   padding-top: 140px;
   font-size: 4rem;
   flex-direction: column;
