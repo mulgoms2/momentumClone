@@ -140,13 +140,31 @@ i {
   cursor: pointer;
 }
 .fa-trash-alt {
+  font-size: 0.8em;
   padding-right: 10px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.fa-trash-alt:hover {
+  opacity: 1;
 }
 .fa-check {
   padding-left: 10px;
+  font-size: 0.8em;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.fa-check:hover {
+  opacity: 1;
 }
 .fa-step-backward {
+  opacity: 0.6;
   padding-left: 10px;
+  font-size: 0.8em;
+  transition: 0.3s;
+}
+.fa-step-backward:hover {
+  opacity: 1;
 }
 .backgroundImg {
   position: absolute;
