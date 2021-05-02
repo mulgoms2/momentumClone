@@ -139,6 +139,10 @@ body {
 i {
   cursor: pointer;
 }
+
+.todoText {
+  cursor: default;
+}
 .fa-trash-alt {
   font-size: 0.8em;
   padding-right: 10px;
@@ -147,6 +151,7 @@ i {
 }
 .fa-trash-alt:hover {
   opacity: 1;
+  font-size: 0.9em;
 }
 .fa-check {
   padding-left: 10px;
@@ -156,6 +161,7 @@ i {
 }
 .fa-check:hover {
   opacity: 1;
+  font-size: 0.9em;
 }
 .fa-step-backward {
   opacity: 0.6;
@@ -165,6 +171,7 @@ i {
 }
 .fa-step-backward:hover {
   opacity: 1;
+  font-size: 0.9em;
 }
 .backgroundImg {
   position: absolute;

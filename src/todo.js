@@ -95,6 +95,7 @@ function buildGenericLi(task) {
   const span = document.createElement("span");
   const deleteBtn = document.createElement("i");
   span.innerText = task.text;
+  span.classList.add("todoText");
   deleteBtn.className = `far fa-trash-alt`;
   deleteBtn.addEventListener("click", deleteTask);
   li.append(deleteBtn, span);
