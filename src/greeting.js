@@ -29,7 +29,7 @@ function paintGreeting(name) {
   todoList.classList.remove(HIDE_CN);
   hello.classList.remove(HIDE_CN);
 
-  hello.innerHTML = `What are you doing Today ${name}`;
+  hello.innerHTML = `You can do it! just One thing! ${name}`;
 }
 
 function loadName() {

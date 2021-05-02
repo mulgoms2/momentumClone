@@ -69,7 +69,7 @@ body {
 }
 
 .todoList {
-  padding-top: 50px;
+  padding-top: 25px;
   display: flex;
   flex-direction: column;
   font-size: 2rem;
@@ -108,20 +108,23 @@ body {
 }
 
 .pending {
-  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .finished {
-  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #js-pending {
-  padding-top: 6px;
-
+  padding-top: 20px;
   font-size: 0.8em;
 }
 
 #js-finished {
-  padding-top: 6px;
+  padding-top: 20px;
   font-size: 0.8em;
 }
 
@@ -132,6 +135,18 @@ body {
   font: inherit;
   cursor: pointer;
   color: var(--white-color);
+}
+i {
+  cursor: pointer;
+}
+.fa-trash-alt {
+  padding-right: 10px;
+}
+.fa-check {
+  padding-left: 10px;
+}
+.fa-step-backward {
+  padding-left: 10px;
 }
 .backgroundImg {
   position: absolute;

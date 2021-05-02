@@ -1,11 +1,14 @@
 const pendingList = document.getElementById("js-pending"),
   finishedList = document.getElementById("js-finished"),
   form = document.getElementById("js-form"),
-  input = form.querySelector("input");
-
+  input = form.querySelector("input"),
+  pendAndFin = document.querySelector(".pendAndFin"),
+  finishedDiv = document.querySelector(".finished"),
+  pendingDiv = document.querySelector(".pending");
 const PENDING = "PENDING";
 const FINISHED = "FINISHED";
 const BUTTON_CN = "allBtn";
+const HIDE = "hide";
 
 let pendingTasks, finishedTasks;
 
@@ -58,6 +61,9 @@ function deleteTask(e) {
   removeFromFinished(li.id);
   removeFromPending(li.id);
   saveState();
+  showClass(input);
+  hideClass(pendingDiv);
+  hideClass(finishedDiv);
 }
 
 function handleFinishClick(e) {
@@ -65,6 +71,8 @@ function handleFinishClick(e) {
   li.parentNode.removeChild(li);
   const task = findInPending(li.id);
   removeFromPending(li.id);
+  showClass(finishedDiv);
+  hideClass(pendingDiv);
   addToFinished(task);
   paintFinishedTask(task);
   saveState();
@@ -75,6 +83,8 @@ function handleBackClick(e) {
   li.parentNode.removeChild(li);
   const task = findInFinished(li.id);
   removeFromFinished(li.id);
+  hideClass(finishedDiv);
+  showClass(pendingDiv);
   addToPending(task);
   paintPendingTask(task);
   saveState();
@@ -83,21 +93,21 @@ function handleBackClick(e) {
 function buildGenericLi(task) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  const deleteBtn = document.createElement("button");
+  const deleteBtn = document.createElement("i");
   span.innerText = task.text;
-  deleteBtn.classList.add(BUTTON_CN);
-  deleteBtn.innerText = "𝗫";
+  deleteBtn.className = `far fa-trash-alt`;
   deleteBtn.addEventListener("click", deleteTask);
-  li.append(span, deleteBtn);
+  li.append(deleteBtn, span);
   li.id = task.id;
   return li;
 }
 
 function paintPendingTask(task) {
   const genericLi = buildGenericLi(task);
-  const completeBtn = document.createElement("button");
-  completeBtn.classList.add(BUTTON_CN);
-  completeBtn.innerText = "V";
+  const completeBtn = document.createElement("i");
+  completeBtn.className = `fas fa-check`;
+  // completeBtn.classList.add(BUTTON_CN);
+  // completeBtn.innerText = "V";
   completeBtn.addEventListener("click", handleFinishClick);
   genericLi.append(completeBtn);
   pendingList.append(genericLi);
@@ -105,9 +115,10 @@ function paintPendingTask(task) {
 
 function paintFinishedTask(task) {
   const genericLi = buildGenericLi(task);
-  const backBtn = document.createElement("button");
-  backBtn.classList.add(BUTTON_CN);
-  backBtn.innerHTML = "🔙";
+  const backBtn = document.createElement("i");
+  backBtn.className = `fas fa-step-backward`;
+  // backBtn.classList.add(BUTTON_CN);
+  // backBtn.innerHTML = "🔙";
   backBtn.addEventListener("click", handleBackClick);
   genericLi.append(backBtn);
   finishedList.append(genericLi);
@@ -119,8 +130,15 @@ function saveState() {
 }
 
 function loadState() {
-  pendingTasks = JSON.parse(localStorage.getItem(PENDING)) || [];
+  pendingTasks = JSON.parse(localStorage.getItem(PENDING)) || []; //어레이 메소드를 사용하고있어서, 비었을 경우에도 빈 배열로 초기화
   finishedTasks = JSON.parse(localStorage.getItem(FINISHED)) || [];
+  if (pendingTasks.length != 0) {
+    hideClass(input);
+    showClass(pendingDiv);
+  } else if (finishedTasks.length != 0) {
+    hideClass(input);
+    showClass(finishedDiv);
+  }
 }
 
 function restoreState() {
@@ -136,12 +154,24 @@ function handleFormSubmit(e) {
   e.preventDefault();
   const taskObj = getTaskObject(input.value);
   input.value = "";
+  hideClass(input);
+  hideClass(finishedDiv);
   paintPendingTask(taskObj);
   savePendingTask(taskObj);
   saveState();
+  showClass(pendingDiv);
+}
+
+function hideClass(thing) {
+  thing.classList.add(HIDE);
+}
+function showClass(thing) {
+  thing.classList.remove(HIDE);
 }
 
 function init() {
+  hideClass(finishedDiv);
+  hideClass(pendingDiv);
   form.addEventListener("submit", handleFormSubmit);
   loadState();
   restoreState();
