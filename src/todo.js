@@ -148,7 +148,7 @@ function init() {
   loadState();
   restoreState();
   input.addEventListener("focusout", (event) => {
-    event.target.placeholder = "Add your To-Do";
+    event.target.placeholder = "Today's focus";
   });
 }
 init();
