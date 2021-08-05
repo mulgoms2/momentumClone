@@ -4,12 +4,12 @@ const clockDiv = document.querySelector(".js-clockContainer"),
   options = { weekday: "long", month: "short", day: "numeric" };
 
 function getTime() {
-  const today = new Date(),
-    hours = today.getHours(),
-    minutes = today.getMinutes(),
-    seconds = today.getSeconds();
+  const date = new Date(),
+    hours = date.getHours(),
+    minutes = date.getMinutes(),
+    seconds = date.getSeconds();
 
-  // calendar.innerHTML = today.toLocaleDateString("kr", options);
+  // calendar.innerHTML = date.toLocaleDateString("kr", options);
 
   clock.innerHTML = `${hours < 10 ? `0${hours}` : hours} : ${
     minutes < 10 ? `0${minutes}` : minutes
