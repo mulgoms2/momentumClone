@@ -3,7 +3,7 @@ const clockDiv = document.querySelector(".js-clockContainer"),
   calendar = document.querySelector(".js-calendar"),
   options = { weekday: "long", month: "short", day: "numeric" };
 
-function time() {
+function getTime() {
   const today = new Date(),
     hours = today.getHours(),
     minutes = today.getMinutes(),
@@ -17,6 +17,7 @@ function time() {
 }
 
 function init() {
-  setInterval(time, 1000);
+  getTime();
+  setInterval(getTime, 1000);
 }
 init();
