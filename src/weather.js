@@ -12,7 +12,10 @@ function getWeather(lat, lon) {
       const temp = json.main.temp,
         city = json.name,
         wind = json.wind.speed;
-      weatherTag.innerText = `${temp}°C  @  ${city} 💨 ${wind}m/s`;
+      weatherTag.innerText =
+        wind >= 3
+          ? `${temp}°C  @  ${city} 💨 ${wind}m/s`
+          : `${temp}°C  @  ${city} 🍃 ${wind}m/s`;
     }); //then make wait fetching finished
 }
 function saveGeoLocation(locationObj) {
