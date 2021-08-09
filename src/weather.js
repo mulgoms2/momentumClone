@@ -61,3 +61,4 @@ function weatherInit() {
 }
 
 weatherInit();
+setInterval(weatherInit, 600000);
