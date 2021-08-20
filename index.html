@@ -9,19 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Asap:wght@600&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/25ebd78ded.js"
-      crossorigin="anonymous"
-    ></script>
-    <script defer src="./src/clock.js"></script>
-    <script defer src="./src/greeting.js"></script>
-    <script defer src="./src/todo.js"></script>
-    <script defer src="./src/background.js"></script>
-    <script defer src="./src/weather.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@600&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/25ebd78ded.js" crossorigin="anonymous"></script>
+    <script defer src="src/clock.js"></script>
+    <script defer src="src/greeting.js"></script>
+    <script defer src="src/todo.js"></script>
+    <script defer src="src/background.js"></script>
+    <script defer src="src/weather.js"></script>
+    <script defer src="src/searchBar.js"></script>
   </head>
   <body>
     <main class="mainContainer">
@@ -61,6 +56,12 @@
         </div>
       </div>
     </main>
+    <span class="searchBar">
+      <form action="https://search.naver.com/search.naver">
+        <i class="fas fa-search searchBar-button" id="searchBtn"></i>
+        <input class="searchBar-input hide" autocomplete="off" type="text" name="query" required />
+      </form>
+    </span>
     <span class="js-weather weather"></span>
   </body>
 </html>
